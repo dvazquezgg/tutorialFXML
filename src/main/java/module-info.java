@@ -1,7 +1,7 @@
 module mx.edu.greengates.cs.tutorial {
     requires javafx.controls;
     requires javafx.fxml;
-
+    requires java.sql;
 
     opens mx.edu.greengates.cs.tutorial to javafx.fxml;
     opens mx.edu.greengates.cs.tutorial.beto to javafx.fxml;

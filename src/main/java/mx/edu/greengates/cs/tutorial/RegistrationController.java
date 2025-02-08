@@ -117,6 +117,14 @@ public class RegistrationController {
         alert.setContentText(message.toString());
         alert.show();
 
+        // Create a new user object that holds the data
+        User user = new User(name, surname, selectedPregnancy.getText().equals("Yes"), appointmentType);
+        for (int i = 0; i < chkDays.length; i++) {
+            if (chkDays[i].isSelected()) {
+                user.addDay(i);
+            }
+        }
+
         // Clear the text fields
         txtName.clear();
         txtSurname.clear();
@@ -132,11 +140,22 @@ public class RegistrationController {
         // Clear the combo box
         cbAppointmentType.getSelectionModel().clearSelection();
 
+        // Save the data to the output text file
         Storage storage = new Storage();
         storage.save(message.toString());
 
+        // Save the data to the database
+        StorageDB storageDB = new StorageDB();
+        storageDB.save(user);
     }
 
+    /**
+     * Get the selected days
+     * @param chkDays
+     * @return selectedDays
+     *
+     * This method takes an array of CheckBoxes and returns a string with the selected days.
+     */
     private String getSelectedDays(CheckBox[] chkDays) {
         StringBuilder selectedDays = new StringBuilder();
         for (CheckBox chkDay : chkDays) {

@@ -1,0 +1,5 @@
+.main_window {
+    -fx-background-color: #9dd8dd;
+    -fx-padding: 10;
+    -fx-font-family: "Helvetica,Arial";
+}

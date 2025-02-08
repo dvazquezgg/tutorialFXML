@@ -1,14 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
-
-</AnchorPane>
+<VBox id="main_window" alignment="CENTER" minHeight="600.0" minWidth="400.0" spacing="15.0" styleClass="main_window" stylesheets="@welcome.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.edu.greengates.cs.tutorial.WelcomeController">
+    <children>
+    <Label fx:id="lblName" alignment="CENTER" text="Welcome to our control form">
+         <font>
+            <Font name="Brush Script MT Italic" size="30.0" />
+         </font></Label>
+    <HBox alignment="CENTER">
+        <Label text="Name:" />
+        <TextField fx:id="txtName" promptText="Type here!" />
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+    </HBox>
+    <HBox alignment="CENTER">
+        <Label alignment="CENTER" contentDisplay="CENTER" text="Password:" />
+        <PasswordField fx:id="txtPassword" promptText="Type here!" />
+    </HBox>
+    <HBox alignment="CENTER">
+        <Label text="Age:" />
+        <Spinner fx:id="spnAge" />
+    </HBox>
+    <VBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+        <Label text="Extra Controls:" />
+        <CheckBox text="Check me!" />
+        <RadioButton text="Select me!" />
+        <ChoiceBox>
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Option 1" />
+                    <String fx:value="Option 2" />
+                    <String fx:value="Option 3" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <TextField fx:id="txtInput" promptText="Type here!" />
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+    </VBox>
+    <Button onAction="#onButtonClicked" text="Click me!" />
+    </children>
+   <padding>
+      <Insets bottom="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

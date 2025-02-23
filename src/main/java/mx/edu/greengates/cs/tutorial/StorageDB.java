@@ -25,6 +25,8 @@ public class StorageDB {
             "    ConsultancyType TEXT NOT NULL\n" +
             ");";
 
+    final String dbScript = "TeenPregnant.sql"; // Database script
+
     // Database object
     private Database db;
 
@@ -39,6 +41,14 @@ public class StorageDB {
         System.out.println("Connecting to " + url);
         this.db = new Database(url);
         db.createTables(CREATE_TABLE);
+    }
+
+    public StorageDB(String filename) {
+        System.out.println("Connecting to " + filename);
+        this.db = new Database(url);
+        // Getting the database script from the file
+        String script = db.readScript(filename);
+        db.createTables(script);
     }
 
     /**

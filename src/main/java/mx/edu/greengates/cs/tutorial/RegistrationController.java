@@ -145,7 +145,8 @@ public class RegistrationController {
         storage.save(message.toString());
 
         // Save the data to the database
-        StorageDB storageDB = new StorageDB();
+        // StorageDB storageDB = new StorageDB();
+        StorageDB storageDB = new StorageDB("TeenPregnant.sql");
         storageDB.save(user);
     }
 

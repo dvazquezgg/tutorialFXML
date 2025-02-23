@@ -1,5 +1,9 @@
 package mx.edu.greengates.cs.tutorial;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -78,6 +82,15 @@ public class Database {
 
         } catch (SQLException e) {
             System.out.println("Database error: " + e.getMessage());
+        }
+    }
+
+    public String readScript(String filename) {
+        try {
+            return new String(Files.readAllBytes(Paths.get(filename)), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            System.out.println("Error reading script file: " + e.getMessage());
+            return null;
         }
     }
 
